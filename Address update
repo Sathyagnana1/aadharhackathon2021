@@ -1,0 +1,125 @@
+# import library
+import math, random
+aadarno=[1234567,2345678]
+aadarname=["Sathyagnana","Suma"]
+aadaradd=["vijayanagar","hosahalli"]
+phno=[8105063177,9535151820]
+n1=0
+n2=0
+OTP=""
+class Address_update:
+ 
+# function to generate OTP
+ def generateOTP():
+    
+     digits = "0123456789"
+     OTP=""
+     for i in range(4):
+         OTP += digits[math.floor(random.random() * 10)]
+         msg=OTP
+     return OTP
+ def viewDetails():
+     print("mention the way to identify your details")
+     print("1.By name  2.By aadhar number")
+     i=int(input("please select your way of searching"))
+     # to input 1 or 2 in order to find a way to search details
+     if i==1:
+         sname=input("enter the name to search")
+         for i in range(len(aadarname))    :
+             if sname==aadarname[i]:
+                 print("serach successful")
+                 print("here are ypur details")
+                 print("full name: ",aadarname[i])
+                 print("your UID: ",aadarno[i])
+                 print("resident address: ",aadaradd[i])
+                 print("please enter 1 to update your address")
+                 u23=int(input())
+                 if i==1:
+                     Address_update.updatead()
+                 
+                 else:
+                     print("invalid input")
+     elif i==2:
+        sno=int(input("enter the UID to search"))
+        for i in range(len(aadarno)):
+            if sno==aadarno[i]:
+                print("serach successful")
+                print("here are ypur details")
+                print("full name: ",aadarname[i])
+                print("your UID: ",aadarno[i])
+                print("resident address: ",aadaradd[i])
+                print("please enter 1 to update your address")
+                u24=int(input())
+                if i==1:
+                    Address_update.updatead()
+            else:
+                print("invalid input")
+     else:
+        print("Invalid onput please check ypur input once again") 
+        
+
+ def updatead():
+     print("you have entered the menu to change your address of aadhar") 
+     print("please enter registered number of your land lord to contact for verification of the address")
+     sphno=int(input())
+     for i in range(len(phno)):
+         if sphno==phno[i]:
+             n1=i
+             print("please enter your number to verify your identity")
+             uno=int(input())
+             for i in range(len(aadarno)):
+                 if uno==phno[i]:
+                     n2=i
+                     print("usder verified")
+             
+             print("An otp has been sent to your land lord ")
+             print("please wait for your lord land to confirm your identity to procced futher")
+             
+ def landlord():
+     print("dear aadhar user your tenant")
+     print(aadarname[n1])
+     aadarno1=[]
+     aadarno1.append(aadarno[n1])
+     print("bearing addhar no is *******")
+     print("check the name and please confirm the details")
+     n=int(input("please enter 1 if the details given are correct"))
+     if n==1:
+         print("you will recive a otp please enter the otp to confirm that you are willing update your tenannt adderss")
+         if __name__ == "__main__" :
+            print("please enter the given below") 
+            print(Address_update.generateOTP())
+            otp=(input("please the above OTP to proceed futher"))
+            print("since you verified your OTP and please tell whether you want to share your address to your tenant")
+            print("please click 1 to notify that tenant that the landlord is verfied and 2 to send your complete address")
+            u1=int(input())
+            if u1==1:
+                print("shortly the message will be sent to your tenant about verification")
+             
+                
+ def verifiy():
+     print("dear user your has sucessfully identified your identity and given some details about himself")               
+     print("name",aadarname[n1])
+     print("UID number  ********* ")
+     print("Address of your lord land is  ******************")
+     print("dear user your land lord has hidden the futher details please ask his consent to view the deatils")
+     u3=int(input("please enter 1 to ask your land lord to ask his consent"))
+     if u3==1:
+         Address_update.consent()
+         
+ def consent():
+     print("this is your tenant",aadarname[n2])
+     print("you haveto write a letter in order to get consent from your land lord")
+     print("enter your aadahar number to print a consent letter")
+     uno01=int(input())
+     for i in range(len(aadarno)):
+         if aadarno[i]==uno01:
+             print(aadarname[i],end="")
+             print(" is your tenant.Dear landlord this is a request to please give your consent so that I can update my address.")
+             print(".......................................")
+             print("this letter will be sent ton your landlord please wait for his consent")
+             
+def consent_letter():
+    print(aadarno[n1],end="")
+    print("being my tenant bearing name",end="")
+    print(aadarname[n1],end="")
+    print("hereby giving consent in order to change the address")
